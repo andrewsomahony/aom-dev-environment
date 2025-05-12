@@ -1,0 +1,13 @@
+FROM ubuntu:latest
+
+# Install all our dependencies
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt install -y curl git jq build-essential clang python3 python-is-python3 vim
+
+# Create our new working directory
+WORKDIR /workspace
+
+# Just sleep indefinitely for our container, as we will use 
+# Bash to install everything we need with various scripts
+ENTRYPOINT [ "sleep", "infinity" ]
